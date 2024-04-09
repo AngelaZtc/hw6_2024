@@ -19,45 +19,45 @@ document.querySelector("#pause").addEventListener("click", function() {
 	video.pause();
 })
 
-    // Play button
+    // Play
     document.getElementById('play').addEventListener('click', function() {
         video.play();
         updateVolumeInfo();
     });
 
-    // Pause button
+    // Pause
     document.getElementById('pause').addEventListener('click', function() {
         video.pause();
     });
 
-    // Slow Down button
+    // Slow Down
     document.getElementById('slower').addEventListener('click', function() {
         video.playbackRate *= 0.9;
         console.log(`New Speed: ${video.playbackRate}`);
     });
 
-    // Speed Up button
+    // Speed Up
     document.getElementById('faster').addEventListener('click', function() {
         video.playbackRate /= 0.9; // Increase speed proportionally
         console.log(`New Speed: ${video.playbackRate}`);
     });
 
-    // Skip Ahead button
+    // Skip Ahead
     document.getElementById('skip').addEventListener('click', function() {
         video.currentTime += 10;
         if(video.currentTime >= video.duration) {
-            video.currentTime = 0; // Go back to start if video length exceeded
+            video.currentTime = 0;
         }
         console.log(`Current Location: ${video.currentTime}`);
     });
 
-    // Mute button
+    // Mute
     document.getElementById('mute').addEventListener('click', function() {
         video.muted = !video.muted;
         this.textContent = video.muted ? "Unmute" : "Mute";
     });
 
-    // Volume Slider
+    // Volume
     document.getElementById('slider').addEventListener('input', function() {
         video.volume = this.value / 100;
         updateVolumeInfo();
@@ -73,7 +73,7 @@ document.querySelector("#pause").addEventListener("click", function() {
         video.classList.remove('oldSchool');
     });
 
-    // Function to update volume information
+    // update volume information
     function updateVolumeInfo() {
         document.getElementById('volume').textContent = `${Math.round(video.volume * 100)}%`;
     }
